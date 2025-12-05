@@ -1,13 +1,14 @@
-def get_book_text(txt):
-    with open(txt) as f:
-        file_contents = f.read()
-    return file_contents
-    
-def get_num_words():
-    contents = get_book_text("books/frankenstein.txt")
-    words = contents.split()
-    num_words = len(words)
+def get_num_words(text):
+    words = text.split()
+    return len(words)
 
-    print(f"Found {num_words} total words")
 
-get_num_words()
+def count_characters(txt):
+    chars = {}
+    for c in txt:
+        lowered = c.lower()
+        if lowered in chars:
+            chars[lowered] += 1
+        else:
+            chars[lowered] = 1
+    return chars
